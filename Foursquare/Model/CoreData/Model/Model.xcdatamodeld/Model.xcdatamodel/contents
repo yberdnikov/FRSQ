@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="FTAVenue" representedClassName="FTAVenue" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ratingSignals" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="venueID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FTAVenuesGroup" inverseName="venues" inverseEntity="FTAVenuesGroup" syncable="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FTAVenuePhoto" inverseName="venue" inverseEntity="FTAVenuePhoto" syncable="YES"/>
+    </entity>
+    <entity name="FTAVenuePhoto" representedClassName="FTAVenuePhoto" syncable="YES">
+        <attribute name="photoID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prefix" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="suffix" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="venue" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FTAVenue" inverseName="photos" inverseEntity="FTAVenue" syncable="YES"/>
+    </entity>
+    <entity name="FTAVenuesGroup" representedClassName="FTAVenuesGroup" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="venues" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FTAVenue" inverseName="group" inverseEntity="FTAVenue" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="FTAVenue" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="FTAVenuePhoto" positionX="-54" positionY="9" width="128" height="105"/>
+        <element name="FTAVenuesGroup" positionX="-45" positionY="54" width="128" height="90"/>
+    </elements>
+</model>
